@@ -49,4 +49,37 @@ function verifierStock(produitId, quantite) {
       }, 1000);
     });
   }
+
+
+
+
+
+
+
+function appliquerCodePromo(code) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (code === "promo10") {
+        resolve("Code promo appliqué : 10%");
+      } else if (code === "promo20") {
+        resolve("Code promo appliqué : 20%");
+      } else {
+        reject("Code promo invalide");
+      }
+    }, 1500); // 1.5 secondes
+  });
+}
+
+// Exemple d'utilisation :
+const codeUtilisateur = prompt("Entrez votre code promo :");
+
+appliquerCodePromo(codeUtilisateur)
+  .then((message) => {
+    console.log(message);
+    alert(message);
+  })
+  .catch((erreur) => {
+    console.error(erreur);
+    alert(erreur);
+  });
   
